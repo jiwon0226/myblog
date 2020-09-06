@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>detail</title>
+</head>
+<body>
+{% for post in posts %}
+    <h1>{{board.pk}}:{{board.title}}</h1>
+    <h2>{{board.author}}</h2>
+    <p>{{board.content}}</p>
+    <p>{{board.create_at}}</p>
+    <a href="{% url 'delete' pk=board.pk %}">삭제</a>
+    <form method="POST" action="{% url 'edit' pk=post.pk %}">
+        {% csrf_token %}
+        <div class="post_info">
+            제목
+            <input type="text" id="title" name="title">
+            글쓴이
+            <input type="text" id="author" name="author">
+        </div>
+        <div class="post_cont">
+            <textarea id="content" name="content"></textarea>
+            <button type="submit">수정하기</button>
+        </div>
+    </form>
+{% endfor %}
+</body>
+</html>

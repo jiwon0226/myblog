@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myblog_home</title>
+    <link rel= "stylesheet" type="text/css" href="home.css">
+</head>
+<body>
+    <nav>
+        <div class="updti_wrap">
+            <div class="logo">
+                3diary
+            </div>
+            <div class="log_in">
+                <a href="{% url 'sign_up' %}">
+                    SIGN UP
+                </a>
+            </div>
+            <div class="log_in">
+                <a href="#">
+                LOG IN
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="menu"> 
+        <div class="today">
+            <a href="{% url 'home' %}">
+                오늘의 세줄
+            </a>
+        </div>
+        <div class="past">
+            <a href="{% url 'read_board' %}">
+                세줄들 모음 
+            </a>
+        </div>
+    </div>  
+    <div class="write">
+        <form action="{% url 'create_board' %}" method="POST">
+            <div class="post_info">
+                제목
+                <input type="text" id="title" name="title">
+                글쓴이
+                <input type="text" id="author" name="author">
+            </div>
+            <div class="post_cont">
+                <textarea id="content" name="content"></textarea>
+                <button type="submit">저장</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
